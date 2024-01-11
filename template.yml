@@ -1,0 +1,44 @@
+jtex: v1
+kind: typst
+title: SciPy Template
+description: SciPy Conference Proceedings Template
+template: template.typ
+files:
+  - scipy.typ
+  - frontmatter.typ
+  - template.typ
+  - logo.svg
+  - LICENSE
+authors:
+  - name: Rowan Cockett
+    github: rowanc1
+    affiliations:
+      - Curvenote
+version: 0.0.1
+license: MIT
+tags:
+  - preprint
+  - article
+  - paper
+thumbnail: ./examples/pixels/files/screenshot.png
+github: https://github.com/myst-templates/lapreprint-typst
+doc:
+  - id: title
+    required: true
+  - id: authors
+    required: true
+  - id: subtitle
+  - id: short_title
+  - id: open_access
+  - id: keywords
+  - id: doi
+options:
+  - id: github
+    type: string
+    description: A link to the main GitHub repository
+parts:
+  - id: abstract
+    description: >
+      An abstract is a short summary of your research paper or report.
+    max_words: 500
+    required: true
