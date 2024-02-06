@@ -1,8 +1,9 @@
 // Created with jtex v.1.0.12
 #import "../../scipy.typ": *
 #show: template.with(
-  title: "vak: a neural network framework for researchers studying animal acoustic communication",
-  abstract: [
+  frontmatter: (
+    title: "vak: a neural network framework for researchers studying animal acoustic communication",
+    abstract: [
 How is speech like birdsong? What do we mean when we say an animal learns their vocalizations?
 Questions like these are answered by studying how animals communicate with sound.
 As in many other fields, the study of acoustic communication is being revolutionized by deep neural network models.
@@ -28,48 +29,46 @@ so that vak developers and users can focus on the domain.
 We provide proof-of-concept results showing how vak can be used to
 test new models and compare existing models from multiple model families.
 In closing we discuss our roadmap for development and vision for the community of users.
-  ],
-  date: datetime(
-    year: 2023,
-    month: 7,
-    day: 10,
-  ),
-  keywords: ("animal acoustic communication","bioacoustics","neural networks",),
-  doi: "10.25080/gerudo-f2bc6f59-008",
-  authors: (
-    (
-      name: "David Nicholson",
-      orcid: "0000-0002-4261-4719",
-      affiliations: "1",
-      email: "nicholdav@gmail.com"
+    ],
+    date: datetime(
+      year: 2023,
+      month: 7,
+      day: 10,
     ),
-    (
-      name: "Yarden Cohen",
-      orcid: "0000-0002-8149-6954",
-      affiliations: "2",
+    open-access: true,
+    license: "CC-BY-4.0",
+    keywords: ("animal acoustic communication","bioacoustics","neural networks",),
+    doi: "10.25080/gerudo-f2bc6f59-008",
+    authors: (
+      (
+        name: "David Nicholson",
+        orcid: "0000-0002-4261-4719",
+        affiliations: "1",
+        email: "nicholdav@gmail.com"
+      ),
+      (
+        name: "Yarden Cohen",
+        orcid: "0000-0002-8149-6954",
+        affiliations: "2",
+      ),
     ),
-  ),
-  github: "https://github.com/vocalpy/vak",
-  affiliations: (
-    (
-      id: "1",
-      name: "Independent researcher, Baltimore, Maryland, USA",
-    ),
-    (
-      id: "2",
-      name: "Weizmann Institute of Science, Rehovot, Israel",
+    github: "https://github.com/vocalpy/vak",
+    affiliations: (
+      (
+        id: "1",
+        name: "Independent researcher, Baltimore, Maryland, USA",
+      ),
+      (
+        id: "2",
+        name: "Weizmann Institute of Science, Rehovot, Israel",
+      ),
     ),
   )
 )
 
 /* Written by MyST v1.1.37 */
 
-#set text(font: "Noto Serif", size: 9pt)
-
-#show par: it => {
-  set par(justify: true)
-  it
-}
+#set page(columns: 2, margin: (x: 1.5cm, y: 2cm),)
 
 = Introduction <introduction>
 
@@ -83,8 +82,6 @@ As others have argued, major advances in this research will require
 cutting edge computational methods and big team science across a wide range of disciplines,
 including ecology, ethology, bioacoustics, psychology, neuroscience, linguistics, and genomics
 @sainburgComputationalNeuroethologyVocal2021 @stowellComputationalBioacousticsDeep2022 @wirthlinModularApproachVocal2019 @hauserFacultyLanguageWhat2002.
-
-#set page(columns: 2, margin: (x: 1.5cm, y: 2cm),)
 
 Research on animal acoustic communication is being revolutionized by
 deep learning algorithms @sainburgComputationalNeuroethologyVocal2021 @stowellComputationalBioacousticsDeep2022 @cohen2022recent.

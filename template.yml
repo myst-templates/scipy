@@ -4,11 +4,11 @@ title: SciPy Template
 description: SciPy Conference Proceedings Template
 template: template.typ
 files:
-  - scipy.typ
-  - frontmatter.typ
   - template.typ
+  - scipy.typ
   - logo.svg
-  - LICENSE
+  - validate-frontmatter.typ
+  - pubmatter.typ
 authors:
   - name: Rowan Cockett
     github: rowanc1
@@ -32,10 +32,10 @@ doc:
   - id: open_access
   - id: keywords
   - id: doi
-options:
   - id: github
-    type: string
-    description: A link to the main GitHub repository
+# options:
+#     type: string
+#     description: A link to the main GitHub repository
 parts:
   - id: abstract
     description: >
