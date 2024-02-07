@@ -70,8 +70,5 @@
 [-CONTENT-]
 
 [# if doc.bibtex #]
-#{
-  show bibliography: set text(7pt)
-  bibliography("[-doc.bibtex-]", title: text(10pt, "References"), style: "ieee")
-}
+#bibliography("[-doc.bibtex-]", title: text(10pt, "References"), style: "ieee")
 [# endif #]

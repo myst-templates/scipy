@@ -864,7 +864,4 @@ will provide a framework that
 can be developed collaboratively by the entire
 research community studying acoustic communication in animals.
 
-#{
-  show bibliography: set text(7pt)
-  bibliography("main.bib", title: text(10pt, "References"), style: "ieee")
-}
+#bibliography("main.bib")

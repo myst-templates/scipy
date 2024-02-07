@@ -206,6 +206,7 @@
 
   return box(inset: (top: 10pt, bottom: 5pt), width: 100%, {
     with-theme((theme) => {
+      set text(size, font: theme.font)
       authors.map(author => {
         text(size, font: theme.font, weight: weight, author.name)
         if (show-affiliations and "affiliations" in author) {

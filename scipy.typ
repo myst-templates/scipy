@@ -60,17 +60,17 @@
     #image("logo.svg")
     #v(-13pt)
     #align(center)[
-      #text(size: 15pt, style: "italic", weight: "bold", fill: theme.color)[SciPy 2023]
+      #text(size: 15pt, style: "italic", weight: "bold", fill: theme.color, font: theme.font)[SciPy 2023]
       #v(-6pt)
-      #text(size: 10pt, style: "italic", weight: "light", fill: theme.color)[July 10 – July 16, 2023]
+      #text(size: 10pt, style: "italic", weight: "light", fill: theme.color, font: theme.font)[July 10 – July 16, 2023]
     ]
     #v(13pt)
     #set par(justify: true)
-    #text(size: 7.5pt, fill: black.lighten(10%))[
+    #text(size: 7.5pt, fill: black.lighten(10%), font: theme.font)[
       Proceedings of the 22#super[nd]\
       Python in Science Conference
     ]
-    #text(size: 6pt, fill: black.lighten(40%))[
+    #text(size: 6pt, fill: black.lighten(40%), font: theme.font)[
       ISSN: 2575-9752
     ]
   ]
@@ -199,6 +199,7 @@
     dx: -33%,
     dy: -10pt,
     box(width: 27%, {
+      set text(font: theme.font)
       if (kind != none) {
         show par: set block(spacing: 0em)
         text(11pt, fill: theme.color, weight: "semibold", smallcaps(kind))
@@ -239,7 +240,7 @@
 
   pubmatter.show-abstract-block(fm)
 
-  show par: set block(spacing: 1.5em)
+  show par: set block(spacing: 1.4em)
 
   show raw.where(block: true): (it) => {
       set text(size: 8pt)
@@ -247,6 +248,13 @@
   }
   show figure.caption: leftCaption
   set figure(placement: auto)
+
+  set bibliography(title: text(10pt, "References"), style: "ieee")
+  show bibliography: (it) => {
+    set text(7pt)
+    set block(spacing: 0.9em)
+    it
+  }
 
   // Display the paper's contents.
   body
