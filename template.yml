@@ -20,8 +20,8 @@ tags:
   - preprint
   - article
   - paper
-thumbnail: ./examples/pixels/files/screenshot.png
-github: https://github.com/myst-templates/lapreprint-typst
+thumbnail: ./thumbnail.png
+github: https://github.com/myst-templates/scipy
 doc:
   - id: title
     required: true
