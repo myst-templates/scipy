@@ -1,4 +1,4 @@
-#import "./pubmatter.typ"
+#import "@preview/pubmatter:0.1.0"
 
 #let leftCaption(it) = {
   set text(size: 8pt)
