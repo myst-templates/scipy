@@ -2,6 +2,26 @@
 
 [-IMPORTS-]
 
+
+#let tableStyle = (
+  map-cells: cell => {
+    if (cell.y == 0) {
+      return (..cell, content: strong(text(cell.content, 8pt)))
+    }
+    (..cell, content: text(cell.content, 8pt))
+  },
+  auto-vlines: false,
+  map-hlines: line => {
+    if (line.y == 0 or line.y == 1) {
+      line.stroke = gray + 1pt;
+    } else {
+      line.stroke = 0pt;
+    }
+    return line
+  },
+)
+
+
 #show: template.with(
   frontmatter: (
     title: "[-doc.title-]",

@@ -1,0 +1,3 @@
+[submodule "pubmatter"]
+	path = pubmatter
+	url = https://github.com/curvenote/pubmatter

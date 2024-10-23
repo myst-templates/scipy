@@ -1,6 +1,7 @@
-#import "@preview/pubmatter:0.1.0"
+// #import "@preview/pubmatter:0.1.0"
+#import "pubmatter/pubmatter.typ"
 
-#let leftCaption(it) = {
+#let leftCaption(it) = context {
   set text(size: 8pt)
   set align(left)
   set par(justify: true)
@@ -44,14 +45,14 @@
       width: 100%,
       stroke: (top: 1pt + gray),
       inset: (top: 8pt, right: 2pt),
-      [
+      context [
         #set text(font: theme.font, size: 9pt, fill: gray.darken(50%))
         #pubmatter.show-spaced-content((
           if("venue" in fm) {emph(fm.venue)},
           if("date" in fm and fm.date != none) {fm.date.display("[month repr:long] [day], [year]")}
         ))
         #h(1fr)
-        #{if (page-start == none) {counter(page).display()} else {page-start}} of #{if (page-start == none) {locate((loc) => {counter(page).final(loc).first()})} else {max-page}}
+        #{if (page-start == none) {counter(page).display()} else {page-start}} of #{if (page-start == none) {{counter(page).final().first()}} else {max-page}}
       ]
     ),
   )
@@ -60,14 +61,14 @@
     #image("logo.svg")
     #v(-13pt)
     #align(center)[
-      #text(size: 15pt, style: "italic", weight: "bold", fill: theme.color, font: theme.font)[SciPy 2023]
+      #text(size: 15pt, style: "italic", weight: "bold", fill: theme.color, font: theme.font)[SciPy 2024]
       #v(-6pt)
-      #text(size: 10pt, style: "italic", weight: "light", fill: theme.color, font: theme.font)[July 10 – July 16, 2023]
+      #text(size: 10pt, style: "italic", weight: "light", fill: theme.color, font: theme.font)[July 8 - July 14, 2024]
     ]
     #v(13pt)
     #set par(justify: true)
     #text(size: 7.5pt, fill: black.lighten(10%), font: theme.font)[
-      Proceedings of the 22#super[nd]\
+      Proceedings of the 23#super[nd]\
       Python in Science Conference
     ]
     #text(size: 6pt, fill: black.lighten(40%), font: theme.font)[
@@ -100,7 +101,8 @@
 
   // Configure headings.
   set heading(numbering: heading-numbering)
-  show heading: it => locate(loc => {
+  show heading: it => context {
+    let loc = here()
     // Find out the final number of the heading counter.
     let levels = counter(heading).at(loc)
     set text(10pt, weight: 400)
@@ -139,7 +141,7 @@
       }
       _#(it.body):_
     ]
-  })
+  }
 
 
   if (logo != none) {
@@ -201,7 +203,7 @@
     box(width: 27%, {
       set text(font: theme.font)
       if (kind != none) {
-        show par: set block(spacing: 0em)
+        show par: set par(spacing: 0em)
         text(11pt, fill: theme.color, weight: "semibold", smallcaps(kind))
         parbreak()
       }
@@ -240,10 +242,11 @@
 
   pubmatter.show-abstract-block(fm)
 
-  show par: set block(spacing: 1.4em)
+  show par: set par(spacing: 1.4em)
 
   show raw.where(block: true): (it) => {
-      set text(size: 8pt)
+      set text(size: 6pt)
+      set align(left)
       block(fill: luma(240), width: 100%, inset: 10pt, radius: 1pt, it)
   }
   show figure.caption: leftCaption
