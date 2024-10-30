@@ -269,7 +269,7 @@
       block(sticky: true, fill: luma(240), width: 100%, inset: 10pt, radius: 1pt, it)
   }
   show figure.caption: leftCaption
-  show figure.where(kind: table): set figure.caption(position: top)
+  show figure.where(kind: "table"): set figure.caption(position: top)
   set figure(placement: auto)
 
   set bibliography(title: text(10pt, "References"), style: "ieee")
