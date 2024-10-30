@@ -68,7 +68,7 @@ In closing we discuss our roadmap for development and vision for the community o
 
 /* Written by MyST v1.1.37 */
 
-#set page(columns: 2, margin: (x: 1.5cm, y: 2cm),)
+// #set page(columns: 2, margin: (x: 1.5cm, y: 2cm),)
 
 = Introduction <introduction>
 

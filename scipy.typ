@@ -12,6 +12,28 @@
   it.body
 }
 
+#let fullwidth(it) = {
+  place(top, dx: -30%, float: true, scope: "parent",
+  box(width: 135%, it))
+}
+
+#let smallTableStyle = (
+  map-cells: cell => {
+    if (cell.y == 0) {
+      return (..cell, content: strong(text(cell.content, 5pt)))
+    }
+    (..cell, content: text(cell.content, 5pt))
+  },
+  auto-vlines: false,
+  map-hlines: line => {
+    if (line.y == 0 or line.y == 1) {
+      line.stroke = gray + 1pt;
+    } else {
+      line.stroke = 0pt;
+    }
+    return line
+  },
+)
 
 #let template(
   frontmatter: (),
@@ -37,10 +59,11 @@
   // Set document metadata.
   set document(title: fm.title, author: fm.authors.map(author => author.name))
   let theme = (color: rgb("#2453A1"), font: "Noto Sans")
+  state("THEME").update(theme)
   set page(
     paper: paper-size,
     margin: (left: 25%),
-    header: pubmatter.show-page-header(theme: theme, fm),
+    header: pubmatter.show-page-header(fm),
     footer: block(
       width: 100%,
       stroke: (top: 1pt + gray),
@@ -56,7 +79,6 @@
       ]
     ),
   )
-  state("THEME").update(theme)
   let logo = [
     #image("logo.svg")
     #v(-13pt)
@@ -113,28 +135,27 @@
       // #set align(center)
       #set text(if is-ack { 10pt } else { 12pt })
       #show: smallcaps
-      #v(20pt, weak: true)
+      #show: block.with(above: 20pt, below: 13.75pt, sticky: true)
       #if it.numbering != none and not is-ack {
         numbering(heading-numbering, ..levels)
         [.]
         h(7pt, weak: true)
       }
       #it.body
-      #v(13.75pt, weak: true)
     ] else if it.level == 2 [
       // Second-level headings are run-ins.
       #set par(first-line-indent: 0pt)
       #set text(style: "italic")
-      #v(10pt, weak: true)
+      #show: block.with(above: 15pt, below: 13.75pt, sticky: true)
       #if it.numbering != none {
         numbering(heading-numbering, ..levels)
         [.]
         h(7pt, weak: true)
       }
       #it.body
-      #v(10pt, weak: true)
     ] else [
       // Third level headings are run-ins too, but different.
+      #show: block.with(above: 15pt, below: 13.75pt, sticky: true)
       #if it.level == 3 {
         numbering(heading-numbering, ..levels)
         [. ]
@@ -142,8 +163,6 @@
       _#(it.body):_
     ]
   }
-
-
   if (logo != none) {
     place(
       top,
@@ -242,14 +261,15 @@
 
   pubmatter.show-abstract-block(fm)
 
-  show par: set par(spacing: 1.4em)
+  show par: set par(spacing: 1.4em, justify: true)
 
   show raw.where(block: true): (it) => {
       set text(size: 6pt)
       set align(left)
-      block(fill: luma(240), width: 100%, inset: 10pt, radius: 1pt, it)
+      block(sticky: true, fill: luma(240), width: 100%, inset: 10pt, radius: 1pt, it)
   }
   show figure.caption: leftCaption
+  show figure.where(kind: table): set figure.caption(position: top)
   set figure(placement: auto)
 
   set bibliography(title: text(10pt, "References"), style: "ieee")
