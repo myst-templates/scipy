@@ -59,6 +59,7 @@
   // Set document metadata.
   set document(title: fm.title, author: fm.authors.map(author => author.name))
   let theme = (color: rgb("#2453A1"), font: "Noto Sans")
+  if (page-start != none) {counter(page).update(page-start)}
   state("THEME").update(theme)
   set page(
     paper: paper-size,
@@ -75,7 +76,7 @@
           if("date" in fm and fm.date != none) {fm.date.display("[month repr:long] [day], [year]")}
         ))
         #h(1fr)
-        #{if (page-start == none) {counter(page).display()} else {page-start}} // of #{if (page-start == none) {{counter(page).final().first()}} else {max-page}}
+        #counter(page).display()
       ]
     ),
   )
