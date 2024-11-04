@@ -75,7 +75,7 @@
           if("date" in fm and fm.date != none) {fm.date.display("[month repr:long] [day], [year]")}
         ))
         #h(1fr)
-        #{if (page-start == none) {counter(page).display()} else {page-start}} of #{if (page-start == none) {{counter(page).final().first()}} else {max-page}}
+        #{if (page-start == none) {counter(page).display()} else {page-start}} // of #{if (page-start == none) {{counter(page).final().first()}} else {max-page}}
       ]
     ),
   )

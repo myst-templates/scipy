@@ -33,6 +33,7 @@ doc:
   - id: keywords
   - id: doi
   - id: github
+  - id: first_page
 options:
   - id: conference-year
     type: number
