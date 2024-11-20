@@ -161,7 +161,7 @@
         numbering(heading-numbering, ..levels)
         [. ]
       }
-      _#(it.body):_
+      _#(it.body)_
     ]
   }
   if (logo != none) {
